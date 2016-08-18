@@ -1,0 +1,16 @@
+#/bin/bash
+sudo yum update -y
+sudo yum install -y httpd24 php56
+sudo service httpd start
+sudo chkconfig httpd on
+sudo chkconfig --list httpd
+sudo groupadd www
+sudo usermod -a -G www ec2-user
+sudo chmod 2775 /var/www
+find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+
+
+
+//curl http://169.254.169.254/latest/meta-data/local-ipv4 >> index.php
