@@ -11,4 +11,5 @@ find /var/www -type d -exec chmod 2775 {} +
 find /var/www -type f -exec chmod 0664 {} +
 cd /var/www/html
 echo "<?php phpinfo(); ?>" > phpinfo.php
-git clone https://github.com/4ndersonLin/aws-alb-test-page/tree/master/index-page/index.php
+git clone https://github.com/4ndersonLin/aws-alb-test-page.git
+cp /home/ec2-user/aws-alb-test-page/index-page/index.php /var/www/html/index.php
